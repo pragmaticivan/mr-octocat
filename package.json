@@ -1,0 +1,44 @@
+{
+  "name": "mr-octocat",
+  "version": "0.0.1",
+  "description": "Take Home Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pragmaticivan/mr-octocat.git"
+  },
+  "author": "Ivan Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pragmaticivan/mr-octocat/issues"
+  },
+  "homepage": "https://github.com/pragmaticivan/mr-octocat#readme",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "axios": "^0.18.0",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/next": "^8.0.5",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "@zeit/next-typescript": "^1.1.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "jest": "^24.8.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.8.6",
+    "typescript": "^3.4.5"
+  }
+}
