@@ -1,6 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { Profile } from "../src/types";
+import { Profile } from "../../src/types";
+import Sidebar from "../../src/containers/Sidebar";
+import RepositoryArea from "../../src/containers/RepositoryArea";
+import "../../src/styles/global.css";
+import style from "./style.css";
 
 interface Props {
   userProfile: Profile;
@@ -20,9 +24,9 @@ export default class IndexPage extends React.Component<Props> {
 
   render() {
     const { userProfile } = this.props;
-    return (<React.Fragment>
-      <h1>Next.js App written in TypeScript with Jest - {userProfile.name}</h1>
-      <img src={userProfile.avatarUrl} />
-    </React.Fragment>)
+    return (<div className={style.container}>
+      <Sidebar userProfile={userProfile} />
+      <RepositoryArea />
+    </div>)
   }
 }

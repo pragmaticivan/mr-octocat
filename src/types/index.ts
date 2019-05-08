@@ -1,5 +1,5 @@
 export interface Profile {
-  avatar_url: string;
+  avatarUrl: string;
   url: string;
   name: string;
 }
