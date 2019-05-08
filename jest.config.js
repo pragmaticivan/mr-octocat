@@ -6,6 +6,7 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'babel-jest'
   },
+  reporters: ["default", "jest-junit"],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   collectCoverage: true
