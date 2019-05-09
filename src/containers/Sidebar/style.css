@@ -8,13 +8,11 @@
   border-radius: 6px;
 }
 
-.btn_follow {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 6px 12px;
-  white-space: nowrap;
-  cursor: pointer;
-  border-radius: 6px;
-  border: 1px solid rgba(27,31,35,.2);
+.profile_info {
+  border-top: #eaecef solid 1px;
+  margin-top: 20px;
+}
+
+.user_profile_wrapper {
+  padding: 20px 0;
 }
