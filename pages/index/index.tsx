@@ -8,10 +8,11 @@ import style from "./style.css";
 
 interface Props {
   userProfile: Profile;
+  pageTab: string | null;
 }
 
 export default class IndexPage extends React.Component<Props> {
-  static async getInitialProps() {
+  static async getInitialProps({query}) {
     let userProfile: Profile;
     const profile = (await axios.get("https://api.github.com/users/octocat")).data;
     userProfile = {
@@ -19,14 +20,14 @@ export default class IndexPage extends React.Component<Props> {
       avatarUrl: profile.avatar_url,
       url: profile.url
     }
-    return { userProfile };
+    return { userProfile, pageTab: query.tab || null };
   }
 
   render() {
-    const { userProfile } = this.props;
+    const { userProfile, pageTab } = this.props;
     return (<div className={style.container}>
       <Sidebar userProfile={userProfile} />
-      <RepositoryArea />
+      <RepositoryArea pageTab={pageTab} />
     </div>)
   }
 }
