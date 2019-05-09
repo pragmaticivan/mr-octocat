@@ -22,12 +22,12 @@ export default class Sidebar extends React.Component<Props> {
         <Button>Follow</Button>
 
         <div className={style.profileInfo}>
-          <ul>
+          {/* <ul>
             <li>Pro</li>
             <li>i - San Francisco</li>
             <li>i - octocat@github.com</li>
             <li>i - http://www.github.com/blog</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     );
