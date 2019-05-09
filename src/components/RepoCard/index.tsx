@@ -1,15 +1,20 @@
 import React from "react";
 import style from "./style.css";
 
-export default class RepoCard extends React.Component {
+interface Props {
+  repository: any;
+}
+
+export default class RepoCard extends React.Component<Props> {
   render() {
+    const { repository } = this.props;
     return (
       <div className={style.container}>
-        <a href="javascript:void" className={style.repoTitle}>
-          Spoon - Knife
+        <a href={repository.html_url} className={style.repoTitle}>
+          {repository.name}
         </a>
         <p>
-          This repo is for demonstration purposes only
+          {repository.description}
         </p>
         <ul className={style.repoData}>
           <li>

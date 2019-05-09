@@ -3,12 +3,13 @@ import { Profile } from "../../types";
 import React from "react";
 import UserName from "../../components/UserName";
 import style from "./style.css";
+import { connect } from 'react-redux';
 
 interface Props {
   userProfile: Profile;
 }
 
-export default class Sidebar extends React.Component<Props> {
+class Sidebar extends React.Component<Props> {
   render() {
     const { userProfile } = this.props;
     return (
@@ -33,3 +34,11 @@ export default class Sidebar extends React.Component<Props> {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    userProfile: state.profile.userProfile,
+  }
+}
+
+export default connect(mapStateToProps)(Sidebar);
