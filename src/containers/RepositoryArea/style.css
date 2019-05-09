@@ -1,0 +1,51 @@
+.container {
+  width: 100%;
+}
+
+.repo_navigation {
+  margin: 0;
+  padding: 0;
+  border-bottom: #cccccc 1px solid;
+}
+
+.repo_navigation li {
+  display: inline-block;
+}
+
+.repo_navigation li:hover {
+  display: inline-block;
+  border-bottom: #cccccc 2px solid;
+}
+
+.repo_navigation li a {
+  text-decoration: none;
+  color: #24292e;
+  padding: 14px 10px;
+  display: block;
+}
+
+.repo_navigation li a span{
+  background-color: rgba(27,31,35,.08);
+  border-radius: 20px;
+  color: #586069;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 2px 5px;
+}
+
+.active {
+  font-weight: 600;
+  border-bottom: #e36209 2px solid;
+}
+
+.repo_card_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.repo_card_list > div {
+  width: calc(100% * (1/2) - 34px - 6px);
+}
