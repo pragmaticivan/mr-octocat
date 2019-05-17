@@ -1,12 +1,12 @@
-import React from "react";
-import style from "./style.css";
 import Link from "next/link";
+import React from "react";
 import RepoCard from "../../components/RepoCard";
 import { connect } from "react-redux";
+import style from "./style.css";
 
 interface Props {
   pageTab: string | null;
-  repositories: any[]
+  repositories: any[];
 }
 
 class RepositoryArea extends React.Component<Props> {
@@ -22,29 +22,40 @@ class RepositoryArea extends React.Component<Props> {
           </li>
           <li className={pageTab === "repositories" ? style.active : ""}>
             <Link href="/?tab=repositories">
-              <a>Repositories <span>8</span></a>
+              <a>
+                Repositories <span>8</span>
+              </a>
             </Link>
           </li>
         </ul>
-
-        <div>
-          <h3>Popular repositories</h3>
-
-          <div className={style.repoCardList}>
-            {repositories.map((repo) => {
-              return(<RepoCard repository={repo} key={repo.id} />)
-            })}
+        {pageTab === "repositories" ? (
+          <div>
+            <div className={style.repoCardList}>
+              {repositories.map(repo => {
+                return <RepoCard repository={repo} key={repo.id} />;
+              })}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>
+            <h3>Popular repositories</h3>
+
+            <div className={style.repoCardList}>
+              {repositories.map(repo => {
+                return <RepoCard repository={repo} key={repo.id} />;
+              })}
+            </div>
+          </div>
+        )}
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    repositories: state.repository.repositories.slice(0, 6),
-  }
-}
+    repositories: state.repository.repositories.slice(0, 6)
+  };
+};
 
 export default connect(mapStateToProps)(RepositoryArea);
