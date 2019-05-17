@@ -1,12 +1,13 @@
 import Link from "next/link";
+import PopularRepositories from "../../components/PopularRepositories";
 import React from "react";
-import RepoCard from "../../components/RepoCard";
+import Repositories from "../../components/Repositories";
 import { connect } from "react-redux";
 import style from "./style.css";
 
 interface Props {
   pageTab: string | null;
-  repositories: any[];
+  repositories: [];
 }
 
 class RepositoryArea extends React.Component<Props> {
@@ -29,23 +30,9 @@ class RepositoryArea extends React.Component<Props> {
           </li>
         </ul>
         {pageTab === "repositories" ? (
-          <div>
-            <div className={style.repoCardList}>
-              {repositories.map(repo => {
-                return <RepoCard repository={repo} key={repo.id} />;
-              })}
-            </div>
-          </div>
+          <Repositories repositories={repositories} />
         ) : (
-          <div>
-            <h3>Popular repositories</h3>
-
-            <div className={style.repoCardList}>
-              {repositories.map(repo => {
-                return <RepoCard repository={repo} key={repo.id} />;
-              })}
-            </div>
-          </div>
+          <PopularRepositories repositories={repositories} />
         )}
       </div>
     );
