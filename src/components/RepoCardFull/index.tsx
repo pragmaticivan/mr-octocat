@@ -1,6 +1,7 @@
 import Button from "../Button";
 import React from "react";
 import { langColorMap } from "../../util";
+import moment from "moment";
 import style from "./style.css";
 
 interface Props {
@@ -33,9 +34,13 @@ export default class RepoCard extends React.Component<Props> {
                 {repository.language}
               </li>
             )}
-            <li>{this.starSvg()} 10.1k</li>
-            <li>{this.forkSvg()} 104k</li>
-            <li>Updated 3 hours ago</li>
+            <li>
+              {this.starSvg()} {repository.stargazers_count}
+            </li>
+            <li>
+              {this.forkSvg()} {repository.forks_count}
+            </li>
+            <li>Updated {moment(repository.updated_at).fromNow()}</li>
           </ul>
         </div>
         <div>
