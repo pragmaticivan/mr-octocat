@@ -3,16 +3,18 @@ import PopularRepositories from "../../components/PopularRepositories";
 import React from "react";
 import Repositories from "../../components/Repositories";
 import { connect } from "react-redux";
+import orderBy from "lodash/orderBy";
 import style from "./style.css";
 
 interface Props {
   pageTab: string | null;
   repositories: [];
+  popularRepositories: [];
 }
 
 class RepositoryArea extends React.Component<Props> {
   render() {
-    const { pageTab, repositories } = this.props;
+    const { pageTab, repositories, popularRepositories } = this.props;
     return (
       <div className={style.container}>
         <ul className={style.repoNavigation}>
@@ -24,7 +26,7 @@ class RepositoryArea extends React.Component<Props> {
           <li className={pageTab === "repositories" ? style.active : ""}>
             <Link href="/?tab=repositories">
               <a>
-                Repositories <span>8</span>
+                Repositories <span>{repositories.length}</span>
               </a>
             </Link>
           </li>
@@ -32,7 +34,7 @@ class RepositoryArea extends React.Component<Props> {
         {pageTab === "repositories" ? (
           <Repositories repositories={repositories} />
         ) : (
-          <PopularRepositories repositories={repositories} />
+          <PopularRepositories repositories={popularRepositories} />
         )}
       </div>
     );
@@ -41,7 +43,8 @@ class RepositoryArea extends React.Component<Props> {
 
 const mapStateToProps = state => {
   return {
-    repositories: state.repository.repositories.slice(0, 6)
+    repositories: orderBy(state.repository.repositories, ["updated_at"], "desc"),
+    popularRepositories: orderBy(state.repository.repositories, ["stargazers_count"], "desc").slice(0, 6)
   };
 };
 
