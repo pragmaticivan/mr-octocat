@@ -1,3 +1,4 @@
+import Button from "../Button";
 import React from "react";
 import { langColorMap } from "../../util";
 import style from "./style.css";
@@ -11,29 +12,35 @@ export default class RepoCard extends React.Component<Props> {
     const { repository } = this.props;
     return (
       <div className={style.container}>
-        <a href={repository.html_url} className={style.repoTitle}>
-          {repository.name}
-        </a>
-        {repository.fork && (
-          <span className={style.forkedFrom}>
-            Forked from <a href={repository.parent_html_url}>{repository.parent}</a>
-          </span>
-        )}
-        <p>{repository.description}</p>
-        <ul className={style.repoData}>
-          {repository.language && (
-            <li>
-              <span className={style.langColor} style={{backgroundColor: langColorMap(repository.language)}} />
-              {repository.language}
-            </li>
+        <div>
+          <a href={repository.html_url} className={style.repoTitle}>
+            {repository.name}
+          </a>
+          {repository.fork && (
+            <span className={style.forkedFrom}>
+              Forked from{" "}
+              <a href={repository.parent_html_url}>{repository.parent}</a>
+            </span>
           )}
-          <li>
-            {this.starSvg()} {repository.stargazers_count}
-          </li>
-          <li>
-            {this.forkSvg()} {repository.forks_count}
-          </li>
-        </ul>
+          <p>{repository.description}</p>
+          <ul className={style.repoData}>
+            {repository.language && (
+              <li>
+                <span
+                  className={style.langColor}
+                  style={{ backgroundColor: langColorMap(repository.language) }}
+                />
+                {repository.language}
+              </li>
+            )}
+            <li>{this.starSvg()} 10.1k</li>
+            <li>{this.forkSvg()} 104k</li>
+            <li>Updated 3 hours ago</li>
+          </ul>
+        </div>
+        <div>
+          <Button>{this.starSvg()} &nbsp; Star</Button>
+        </div>
       </div>
     );
   }

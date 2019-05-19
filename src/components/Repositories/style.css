@@ -1,10 +1,9 @@
 
 .repo_card_list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
-.repo_card_list > div {
-  width: calc(100% * (1/2) - 34px - 6px);
+}
+.search_wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 18px 0;
 }

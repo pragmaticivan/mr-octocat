@@ -1,5 +1,7 @@
+import Button from "../Button";
+import InputSearch from "../InputSearch";
 import React from "react";
-import RepoCard from "../RepoCard";
+import RepoCardFull from "../RepoCardFull";
 import style from "./style.css";
 
 interface Props {
@@ -11,9 +13,14 @@ export default class Repositories extends React.Component<Props> {
     const { repositories } = this.props;
     return (
       <div>
+        <div className={style.searchWrapper}>
+          <InputSearch />
+          <Button>Type: All v</Button>
+          <Button>Language: All v</Button>
+        </div>
         <div className={style.repoCardList}>
           {repositories.map((repo: any) => {
-            return <RepoCard repository={repo} key={repo.id} />;
+            return <RepoCardFull repository={repo} key={repo.id} />;
           })}
         </div>
       </div>

@@ -1,14 +1,25 @@
-import { Store } from "../types";
 import { Dispatch } from "redux";
+import { Store } from "../types";
+import { USER_REPOSITORIES_COMMIT }  from "../contants";
 import axios from "axios";
 import { createAction } from "redux-actions";
-import { USER_REPOSITORIES_COMMIT }  from "../contants";
 
 export const useRepositoriesCommit = createAction(USER_REPOSITORIES_COMMIT);
 
 export function fetchUserRepositories() {
   return async (dispatch: Dispatch, getState: () => Store) => {
-    const repos = (await axios.get("https://api.github.com/users/octocat/repos")).data;
+    let repos = (await axios.get("https://api.github.com/users/octocat/repos")).data;
+    // Get Parent information when required;
+    repos = await Promise.all(repos.map(async (repo) => {
+      if (repo.fork) {
+        const fullRepo = (await axios.get(`https://api.github.com/repos/${repo.full_name}`)).data;
+        repo.parent = fullRepo.parent.full_name;
+        repo.parent_html_url = fullRepo.parent.html_url;
+      }
+      return repo;
+    }))
+
+    console.log(repos);
     return dispatch(useRepositoriesCommit(repos));
   };
 }
