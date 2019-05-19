@@ -1,6 +1,7 @@
+import { kFormatter, langColorMap } from "../../util";
+
 import Button from "../Button";
 import React from "react";
-import { langColorMap } from "../../util";
 import moment from "moment";
 import style from "./style.css";
 
@@ -35,10 +36,10 @@ export default class RepoCard extends React.Component<Props> {
               </li>
             )}
             <li>
-              {this.starSvg()} {repository.stargazers_count}
+              {this.starSvg()} {kFormatter(repository.stargazers_count)}
             </li>
             <li>
-              {this.forkSvg()} {repository.forks_count}
+              {this.forkSvg()} {kFormatter(repository.forks_count)}
             </li>
             <li>Updated {moment(repository.updated_at).fromNow()}</li>
           </ul>

@@ -1,5 +1,6 @@
+import { kFormatter, langColorMap } from "../../util";
+
 import React from "react";
-import { langColorMap } from "../../util";
 import style from "./style.css";
 
 interface Props {
@@ -28,10 +29,10 @@ export default class RepoCard extends React.Component<Props> {
             </li>
           )}
           <li>
-            {this.starSvg()} {repository.stargazers_count}
+            {this.starSvg()} {kFormatter(repository.stargazers_count)}
           </li>
           <li>
-            {this.forkSvg()} {repository.forks_count}
+            {this.forkSvg()} {kFormatter(repository.forks_count)}
           </li>
         </ul>
       </div>
