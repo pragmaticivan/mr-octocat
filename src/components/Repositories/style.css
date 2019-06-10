@@ -1,9 +1,18 @@
 
-.repo_card_list {
-
-}
+.repo_card_list {}
 .search_wrapper {
   display: flex;
   flex-direction: row;
   padding: 18px 0;
 }
+
+.input_wrapper {
+  width: 100%;
+  padding-right: 30px;
+}
+
+.type_wrapper {
+  padding-right: 10px;
+}
+
+.language_wrapper {}

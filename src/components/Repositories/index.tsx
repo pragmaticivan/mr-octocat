@@ -14,9 +14,15 @@ export default class Repositories extends React.Component<Props> {
     return (
       <div>
         <div className={style.searchWrapper}>
-          <InputSearch />
-          <Button>Type: All v</Button>
-          <Button>Language: All v</Button>
+          <div className={style.inputWrapper}>
+            <InputSearch />
+          </div>
+          <div className={style.typeWrapper}>
+            <Button>Type: All v</Button>
+          </div>
+          <div className={style.languageWrapper}>
+            <Button>Language: All v</Button>
+          </div>
         </div>
         <div className={style.repoCardList}>
           {repositories.map((repo: any) => {

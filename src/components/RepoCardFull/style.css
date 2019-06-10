@@ -1,6 +1,6 @@
 .container {
   margin-bottom: 12px;
-  padding: 20px 16px;
+  padding: 20px 0;
   border-top: #d1d5da 1px solid;
   display: flex;
   flex-direction: row;
