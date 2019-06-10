@@ -7,7 +7,6 @@ export function pick(object: object, keys: string[]) {
    }, {});
 }
 
-
 export function langColorMap(lang: string) {
   const colorMap = {
     "html": "#e34c26",
