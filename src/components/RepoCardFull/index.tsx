@@ -44,7 +44,7 @@ export default class RepoCard extends React.Component<Props> {
           </ul>
         </div>
         <div>
-          <Button>{this.starSvg()} &nbsp; Star</Button>
+          <Button onClick={() =>{}}>{this.starSvg()} &nbsp; Star</Button>
         </div>
       </div>
     );

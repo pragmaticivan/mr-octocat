@@ -1,8 +1,9 @@
-import Button from "../Button";
+import Select from "../Select";
 import InputSearch from "../InputSearch";
 import React from "react";
 import RepoCardFull from "../RepoCardFull";
 import style from "./style.css";
+import orderBy from "lodash/orderBy";
 
 interface Props {
   repositories: [];
@@ -11,6 +12,7 @@ interface Props {
 export default class Repositories extends React.Component<Props> {
   render() {
     const { repositories } = this.props;
+    const latestRepos = orderBy(repositories, ["updated_at"], ["desc"])
     return (
       <div>
         <div className={style.searchWrapper}>
@@ -18,14 +20,14 @@ export default class Repositories extends React.Component<Props> {
             <InputSearch />
           </div>
           <div className={style.typeWrapper}>
-            <Button>Type: All v</Button>
+            <Select selectLabel={"Type: All"} />
           </div>
           <div className={style.languageWrapper}>
-            <Button>Language: All v</Button>
+            <Select selectLabel={"Language: All"} />
           </div>
         </div>
         <div className={style.repoCardList}>
-          {repositories.map((repo: any) => {
+          {latestRepos.map((repo: any) => {
             return <RepoCardFull repository={repo} key={repo.id} />;
           })}
         </div>

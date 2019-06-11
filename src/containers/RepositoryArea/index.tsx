@@ -41,7 +41,7 @@ class RepositoryArea extends React.Component<Props> {
 
 const mapStateToProps = state => {
   return {
-    repositories: state.repository.repositories.slice(0, 6)
+    repositories: state.repository.repositories
   };
 };
 

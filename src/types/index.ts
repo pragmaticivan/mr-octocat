@@ -12,3 +12,5 @@ export interface Store {
   profile: ProfileState;
   repository: RepositoryState;
 }
+
+// TODO: Define Repository interface
