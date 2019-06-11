@@ -1,10 +1,17 @@
 import React from "react";
 import style from "./style.css";
 
-export default class Button extends React.Component {
-  render() {
-    return (
-      <button className={style.btnFollow} >{this.props.children}</button>
-    )
-  }
+interface Props {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+const Button: React.FC<Props> = (props) => {
+  const { onClick, children } = props;
+  return (
+    <button className={style.btn} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
+export default Button;

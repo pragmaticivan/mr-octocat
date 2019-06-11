@@ -9,14 +9,25 @@ interface Props {
 }
 
 export default class Repositories extends React.Component<Props> {
+
+  onInputSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("e", e.target.value);
+  };
+
   render() {
     const { repositories } = this.props;
     return (
       <div>
         <div className={style.searchWrapper}>
-          <InputSearch />
-          <Button>Type: All v</Button>
-          <Button>Language: All v</Button>
+          <div className={style.searchInput}>
+            <InputSearch onInput={this.onInputSearch} />
+          </div>
+          <div className={style.searchSelect}>
+            <Button>Type: All v</Button>
+          </div>
+          <div className={style.searchSelect}>
+            <Button>Language: All v</Button>
+          </div>
         </div>
         <div className={style.repoCardList}>
           {repositories.map((repo: any) => {

@@ -1,13 +1,13 @@
+import { ACTIONS }  from "../contants";
 import { Dispatch } from "redux";
 import { Store } from "../types";
-import { USER_REPOSITORIES_COMMIT }  from "../contants";
 import axios from "axios";
 import { createAction } from "redux-actions";
 
-export const useRepositoriesCommit = createAction(USER_REPOSITORIES_COMMIT);
+export const useRepositoriesCommit = createAction(ACTIONS.USER_REPOSITORIES_COMMIT);
 
 export function fetchUserRepositories() {
-  return async (dispatch: Dispatch, getState: () => Store) => {
+  return async (dispatch: Dispatch, _getState: () => Store) => {
     let repos = (await axios.get("https://api.github.com/users/octocat/repos")).data;
     // Get Parent information when required;
     repos = await Promise.all(repos.map(async (repo) => {
@@ -18,8 +18,6 @@ export function fetchUserRepositories() {
       }
       return repo;
     }))
-
-    console.log(repos);
     return dispatch(useRepositoriesCommit(repos));
   };
 }

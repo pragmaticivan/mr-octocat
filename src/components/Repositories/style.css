@@ -7,3 +7,13 @@
   flex-direction: row;
   padding: 18px 0;
 }
+
+.search_input {
+  width: 70%;
+  padding-right: 20px;
+}
+
+.search_select {
+  /* width: 20%; */
+  padding: 0 10px;
+}

@@ -1,19 +1,29 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunkMiddleware from 'redux-thunk';
+import { applyMiddleware, createStore } from "redux";
+
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createEpicMiddleware } from "redux-observable";
 import { initialState as profileInitialState } from "../reducers/profile";
 import { initialState as repositoryInitialState } from "../reducers/repository";
+import { rootEpic } from "../epics";
 import { rootReducer } from "../reducers";
+import thunkMiddleware from "redux-thunk";
 
 const defaultInitialState = {
   profile: profileInitialState,
-  repository: repositoryInitialState,
-}
+  repository: repositoryInitialState
+};
 
 export const initStore = (initialState = defaultInitialState) => {
-  return createStore(
+  const epicMiddleware = createEpicMiddleware();
+
+  const store = createStore(
     rootReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(thunkMiddleware))
-  )
-}
+    composeWithDevTools(applyMiddleware(epicMiddleware, thunkMiddleware))
+  );
+
+  // Redux observable root epic
+  epicMiddleware.run(rootEpic);
+
+  return store;
+};

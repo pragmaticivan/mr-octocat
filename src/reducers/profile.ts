@@ -1,6 +1,6 @@
-import { Reducer } from "redux";
-import { USER_PROFILE_REQUEST_COMMIT } from "../../src/contants";
+import { ACTIONS } from "../../src/contants";
 import { Profile } from "../types";
+import { Reducer } from "redux";
 
 export interface ProfileState {
   userProfile: Profile | null;
@@ -12,14 +12,14 @@ export const initialState: ProfileState = {
 
 const reducer: Reducer<ProfileState> = (state = initialState, action) => {
   switch (action.type) {
-    case USER_PROFILE_REQUEST_COMMIT: {
-      const payload = action.payload;
+    case ACTIONS.USER_PROFILE_REQUEST_COMMIT: {
+      const { avatar_url, name, url } = action.payload;
       return {
         ...state,
         userProfile: {
-          avatarUrl: payload.avatar_url,
-          name: payload.name,
-          url: payload.url,
+          avatarUrl: avatar_url,
+          name: name,
+          url: url
         }
       };
     }
@@ -28,6 +28,5 @@ const reducer: Reducer<ProfileState> = (state = initialState, action) => {
     }
   }
 };
-
 
 export { reducer as ProfileReducer };
