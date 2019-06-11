@@ -7,7 +7,7 @@ import { USER_PROFILE_REQUEST_COMMIT }  from "../contants";
 export const userProfileRequestCommit = createAction(USER_PROFILE_REQUEST_COMMIT);
 
 export function fetchUserProfile() {
-  return async (dispatch: Dispatch, getState: () => Store) => {
+  return async (dispatch: Dispatch, _getState: () => Store) => {
     const profile = (await axios.get("https://api.github.com/users/octocat")).data;
     return dispatch(userProfileRequestCommit(profile));
   };
