@@ -13,4 +13,19 @@ export interface Store {
   repository: RepositoryState;
 }
 
-// TODO: Define Repository interface
+export interface Repository {
+  id: number;
+  name: string;
+  full_name: string;
+  html_url: string;
+  description: string;
+  stargazers_count: number;
+  forks: number;
+  forks_count: number;
+  language: string;
+  fork: boolean;
+  parent_html_url: string;
+  parent: string;
+  created_at: string;
+  updated_at: string;
+}

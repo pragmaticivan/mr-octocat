@@ -1,9 +1,10 @@
 import React from "react";
 import { langColorMap } from "../../util";
 import style from "./style.css";
+import { Repository } from "../../types";
 
 interface Props {
-  repository: any;
+  repository: Repository;
 }
 
 export default class RepoCard extends React.Component<Props> {

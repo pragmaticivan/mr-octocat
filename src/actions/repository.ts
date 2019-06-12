@@ -1,10 +1,10 @@
 import { Dispatch } from "redux";
 import { Store } from "../types";
-import { USER_REPOSITORIES_COMMIT }  from "../contants";
+import { ACTIONS }  from "../contants";
 import axios from "axios";
 import { createAction } from "redux-actions";
 
-export const useRepositoriesCommit = createAction(USER_REPOSITORIES_COMMIT);
+export const useRepositoriesCommit = createAction(ACTIONS.USER_REPOSITORIES_COMMIT);
 
 export function fetchUserRepositories() {
   return async (dispatch: Dispatch, _getState: () => Store) => {

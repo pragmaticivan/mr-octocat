@@ -4,15 +4,18 @@ import React from "react";
 import Repositories from "../../components/Repositories";
 import { connect } from "react-redux";
 import style from "./style.css";
+import orderBy from "lodash/orderBy";
+import { Repository } from "../../types";
 
 interface Props {
   pageTab: string | null;
-  repositories: [];
+  repositories: Repository[];
+  popularRepositories: Repository[]
 }
 
 class RepositoryArea extends React.Component<Props> {
   render() {
-    const { pageTab, repositories } = this.props;
+    const { pageTab, repositories, popularRepositories } = this.props;
     return (
       <div className={style.container}>
         <ul className={style.repoNavigation}>
@@ -32,7 +35,7 @@ class RepositoryArea extends React.Component<Props> {
         {pageTab === "repositories" ? (
           <Repositories repositories={repositories} />
         ) : (
-          <PopularRepositories repositories={repositories} />
+          <PopularRepositories repositories={popularRepositories} />
         )}
       </div>
     );
@@ -41,7 +44,8 @@ class RepositoryArea extends React.Component<Props> {
 
 const mapStateToProps = state => {
   return {
-    repositories: state.repository.repositories
+    repositories: orderBy(state.repository.repositories, ["updated_at"], "desc"),
+    popularRepositories: orderBy(state.repository.repositories, ["stargazers_count"], "desc").slice(0, 6)
   };
 };
 

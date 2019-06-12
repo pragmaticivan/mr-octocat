@@ -2,9 +2,9 @@ import { Store } from "../types";
 import { Dispatch } from "redux";
 import axios from "axios";
 import { createAction } from "redux-actions";
-import { USER_PROFILE_REQUEST_COMMIT }  from "../contants";
+import { ACTIONS }  from "../contants";
 
-export const userProfileRequestCommit = createAction(USER_PROFILE_REQUEST_COMMIT);
+export const userProfileRequestCommit = createAction(ACTIONS.USER_PROFILE_REQUEST_COMMIT);
 
 export function fetchUserProfile() {
   return async (dispatch: Dispatch, _getState: () => Store) => {

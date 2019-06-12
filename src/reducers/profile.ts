@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { USER_PROFILE_REQUEST_COMMIT } from "../../src/contants";
+import { ACTIONS } from "../../src/contants";
 import { Profile } from "../types";
 
 export interface ProfileState {
@@ -12,7 +12,7 @@ export const initialState: ProfileState = {
 
 const reducer: Reducer<ProfileState> = (state = initialState, action) => {
   switch (action.type) {
-    case USER_PROFILE_REQUEST_COMMIT: {
+    case ACTIONS.USER_PROFILE_REQUEST_COMMIT: {
       const payload = action.payload;
       return {
         ...state,
