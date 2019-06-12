@@ -7,7 +7,7 @@ export interface Profile {
   name: string;
 }
 
-// Initial Redux Store
+// Redux Store
 export interface Store {
   profile: ProfileState;
   repository: RepositoryState;
