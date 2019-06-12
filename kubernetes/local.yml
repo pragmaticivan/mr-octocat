@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mr-octocat
+  labels:
+    app: mr-octocat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mr-octocat
+  template:
+    metadata:
+      labels:
+        app: mr-octocat
+    spec:
+      containers:
+      - name: mr-octocat
+        image: mr-octocat
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mr-octocat
+  labels:
+    app: mr-octocat
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: mr-octocat
