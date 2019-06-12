@@ -24,8 +24,8 @@ export interface Repository {
   forks_count: number;
   language: string;
   fork: boolean;
-  parent_html_url: string;
-  parent: string;
+  parent_html_url?: string;
+  parent?: string;
   created_at: string;
   updated_at: string;
 }

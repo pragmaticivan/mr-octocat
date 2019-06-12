@@ -10,7 +10,7 @@ import { Repository } from "../../types";
 interface Props {
   pageTab: string | null;
   repositories: Repository[];
-  popularRepositories: Repository[]
+  popularRepositories: Repository[];
 }
 
 class RepositoryArea extends React.Component<Props> {
@@ -44,8 +44,16 @@ class RepositoryArea extends React.Component<Props> {
 
 const mapStateToProps = state => {
   return {
-    repositories: orderBy(state.repository.repositories, ["updated_at"], "desc"),
-    popularRepositories: orderBy(state.repository.repositories, ["stargazers_count"], "desc").slice(0, 6)
+    repositories: orderBy(
+      state.repository.repositories,
+      ["updated_at"],
+      "desc"
+    ),
+    popularRepositories: orderBy(
+      state.repository.repositories,
+      ["stargazers_count"],
+      "desc"
+    ).slice(0, 6),
   };
 };
 

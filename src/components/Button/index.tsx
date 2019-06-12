@@ -7,9 +7,11 @@ interface Props {
 
 export default class Button extends React.Component<Props> {
   render() {
-    const { onClick } = this.props;
+    const { onClick, children } = this.props;
     return (
-      <button onClick={onClick} className={style.btnFollow} >{this.props.children}</button>
-    )
+      <button onClick={onClick} className={style.btnFollow}>
+        {children}
+      </button>
+    );
   }
 }

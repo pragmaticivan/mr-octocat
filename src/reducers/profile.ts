@@ -7,7 +7,7 @@ export interface ProfileState {
 }
 
 export const initialState: ProfileState = {
-  userProfile: null
+  userProfile: null,
 };
 
 const reducer: Reducer<ProfileState> = (state = initialState, action) => {
@@ -20,7 +20,7 @@ const reducer: Reducer<ProfileState> = (state = initialState, action) => {
           avatarUrl: payload.avatar_url,
           name: payload.name,
           url: payload.url,
-        }
+        },
       };
     }
     default: {
@@ -28,6 +28,5 @@ const reducer: Reducer<ProfileState> = (state = initialState, action) => {
     }
   }
 };
-
 
 export { reducer as ProfileReducer };

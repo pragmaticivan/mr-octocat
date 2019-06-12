@@ -17,14 +17,18 @@ export default class RepoCard extends React.Component<Props> {
         </a>
         {repository.fork && (
           <span className={style.forkedFrom}>
-            Forked from <a href={repository.parent_html_url}>{repository.parent}</a>
+            Forked from{" "}
+            <a href={repository.parent_html_url}>{repository.parent}</a>
           </span>
         )}
         <p>{repository.description}</p>
         <ul className={style.repoData}>
           {repository.language && (
             <li>
-              <span className={style.langColor} style={{backgroundColor: langColorMap(repository.language)}} />
+              <span
+                className={style.langColor}
+                style={{ backgroundColor: langColorMap(repository.language) }}
+              />
               {repository.language}
             </li>
           )}

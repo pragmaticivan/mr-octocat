@@ -3,7 +3,7 @@ import { Profile } from "../../types";
 import React from "react";
 import UserName from "../../components/UserName";
 import style from "./style.css";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 interface Props {
   userProfile: Profile;
@@ -20,7 +20,7 @@ class Sidebar extends React.Component<Props> {
           <UserName userProfile={userProfile} />
         </div>
 
-        <Button>Follow</Button>
+        <Button onClick={() => {}}>Follow</Button>
 
         <div className={style.profileInfo}>
           {/* <ul>
@@ -38,7 +38,7 @@ class Sidebar extends React.Component<Props> {
 const mapStateToProps = state => {
   return {
     userProfile: state.profile.userProfile,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Sidebar);

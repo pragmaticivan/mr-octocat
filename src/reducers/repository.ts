@@ -8,7 +8,7 @@ export interface RepositoryState {
 }
 
 export const initialState: RepositoryState = {
-  repositories: []
+  repositories: [],
 };
 
 const reducer: Reducer<RepositoryState> = (state = initialState, action) => {
@@ -29,12 +29,12 @@ const reducer: Reducer<RepositoryState> = (state = initialState, action) => {
           "parent_html_url",
           "parent",
           "created_at",
-          "updated_at"
+          "updated_at",
         ]);
       });
       return {
         ...state,
-        repositories: payload
+        repositories: payload,
       };
     }
     default: {

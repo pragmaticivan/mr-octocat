@@ -8,7 +8,7 @@ interface Props {
 }
 interface State {
   open: boolean;
-};
+}
 
 export default class Select extends React.Component<Props, State> {
   state = {
@@ -17,19 +17,17 @@ export default class Select extends React.Component<Props, State> {
 
   onBtnClick = () => {
     const { open } = this.state;
-    this.setState({open: !open});
-  }
+    this.setState({ open: !open });
+  };
 
   render() {
     const { selectLabel } = this.props;
     const { open } = this.state;
     return (
       <div className={style.container}>
-        <SelectButton onClick={this.onBtnClick}>
-          {selectLabel}
-        </SelectButton>
+        <SelectButton onClick={this.onBtnClick}>{selectLabel}</SelectButton>
         {open && <SelectWrapper />}
       </div>
-    )
+    );
   }
 }

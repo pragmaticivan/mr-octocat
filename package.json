@@ -7,6 +7,10 @@
     "test": "jest",
     "dev": "next",
     "build": "next build",
+    "cov": "jest --coverage",
+    "format": "prettier --trailing-comma es5 --write \"{src,__{tests,mocks}__}/**/*.{ts,tsx}\"",
+    "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "typecheck": "tsc --noEmit ",
     "start": "next start"
   },
   "repository": {
@@ -47,8 +51,15 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "jest": "^24.8.0",
     "jest-junit": "^6.4.0",
+    "prettier": "^1.18.2",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.8.6",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.4.5",
     "typings-for-css-modules-loader": "^1.7.0"
   }

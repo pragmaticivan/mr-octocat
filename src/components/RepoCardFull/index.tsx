@@ -1,10 +1,10 @@
 import Button from "../Button";
 import React from "react";
-import { langColorMap } from "../../util";
+import { langColorMap, kFormatter } from "../../util";
 import moment from "moment";
 import style from "./style.css";
 import { Repository } from "../../types";
-import {  kFormatter } from "../../util";
+
 interface Props {
   repository: Repository;
 }
@@ -45,7 +45,7 @@ export default class RepoCard extends React.Component<Props> {
           </ul>
         </div>
         <div>
-          <Button onClick={() =>{}}>{this.starSvg()} &nbsp; Star</Button>
+          <Button onClick={() => {}}>{this.starSvg()} &nbsp; Star</Button>
         </div>
       </div>
     );

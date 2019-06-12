@@ -7,17 +7,11 @@ export default class SelectWrapper extends React.Component {
       <div className={style.container}>
         <div>Select type</div>
         <ul>
-          <li>
-            All
-          </li>
-          <li>
-            Sources
-          </li>
-          <li>
-            Forks
-          </li>
+          <li>All</li>
+          <li>Sources</li>
+          <li>Forks</li>
         </ul>
       </div>
-    )
+    );
   }
 }

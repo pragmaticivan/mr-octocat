@@ -8,10 +8,6 @@ interface Props {
 export default class SelectButton extends React.Component<Props> {
   render() {
     const { onClick, children } = this.props;
-    return (
-      <Button onClick={onClick}>
-        {children}
-      </Button>
-    )
+    return <Button onClick={onClick}>{children}</Button>;
   }
 }
