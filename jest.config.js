@@ -9,5 +9,8 @@ module.exports = {
   reporters: ["default", "jest-junit"],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  moduleNameMapper: {
+    '^.+\\.(css)$': '<rootDir>/__mocks__/styleMock.ts'
+  },
   collectCoverage: true
 };
