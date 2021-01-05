@@ -25,7 +25,7 @@
   "homepage": "https://github.com/pragmaticivan/mr-octocat#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "next": "^8.1.0",
