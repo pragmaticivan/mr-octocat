@@ -27,7 +27,7 @@
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "next": "^8.1.0",
     "next-redux-wrapper": "^3.0.0-alpha.2",
     "nprogress": "^0.2.0",
